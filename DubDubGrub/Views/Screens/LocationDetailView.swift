@@ -16,24 +16,15 @@ struct LocationDetailView: View {
     var body: some View {
         
         VStack(spacing: 12) {
-            Image("default-banner-asset")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 120)
+            BannerImageView(imageName: "default-banner-asset")
             
             HStack {
-                Label("123 Main Street", systemImage: "mappin.and.ellipse")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                AddressView(address: "123 Main Street")
                 Spacer()
             }
             .padding(.horizontal)
             
-            Text("This is test description. This is test description. This is test description. This is test description. This is test description.")
-                .lineLimit(3)
-                .minimumScaleFactor(0.75)
-                .frame(height: 70)
-                .padding(.horizontal)
+            DescriptionView(text: "This is test description. This is test description. This is test description. This is test description. This is test description.")
             
             ZStack {
                 Capsule()
@@ -66,6 +57,7 @@ struct LocationDetailView: View {
             Text("Who's Here ?")
                 .bold()
                 .font(.title2)
+            
             ScrollView {
                 LazyVGrid(columns: columns) {
                     FirstNameAvatarView(firstName: "firstName")
@@ -131,5 +123,41 @@ struct FirstNameAvatarView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)
         }
+    }
+}
+
+struct BannerImageView: View {
+    
+    let imageName: String
+    
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .scaledToFit()
+            .frame(height: 120)
+    }
+}
+
+struct AddressView: View {
+    
+    let address: String
+    
+    var body: some View {
+        Label(address, systemImage: "mappin.and.ellipse")
+            .font(.caption)
+            .foregroundColor(.secondary)
+    }
+}
+
+struct  DescriptionView: View {
+    
+    let text: String
+    
+    var body: some View {
+        Text(text)
+            .lineLimit(3)
+            .minimumScaleFactor(0.75)
+            .frame(height: 70)
+            .padding(.horizontal)
     }
 }
