@@ -16,6 +16,7 @@
 		F1B9B45F27B26031006028A0 /* LocationMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B45E27B26031006028A0 /* LocationMapView.swift */; };
 		F1B9B46127B2606F006028A0 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46027B2606F006028A0 /* LocationListView.swift */; };
 		F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46227B26085006028A0 /* ProfileView.swift */; };
+		F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46427B3634D006028A0 /* LocationDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F1B9B45E27B26031006028A0 /* LocationMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapView.swift; sourceTree = "<group>"; };
 		F1B9B46027B2606F006028A0 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		F1B9B46227B26085006028A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		F1B9B46427B3634D006028A0 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				F1B9B45C27B25FF7006028A0 /* AppTabView.swift */,
 				F1B9B45E27B26031006028A0 /* LocationMapView.swift */,
 				F1B9B46027B2606F006028A0 /* LocationListView.swift */,
+				F1B9B46427B3634D006028A0 /* LocationDetailView.swift */,
 				F1B9B46227B26085006028A0 /* ProfileView.swift */,
 				F1B9B44C27B25CA8006028A0 /* Assets.xcassets */,
 				F1B9B44E27B25CA8006028A0 /* Preview Content */,
@@ -166,6 +169,7 @@
 				F1B9B45B27B25F65006028A0 /* ColorExt.swift in Sources */,
 				F1B9B45F27B26031006028A0 /* LocationMapView.swift in Sources */,
 				F1B9B46127B2606F006028A0 /* LocationListView.swift in Sources */,
+				F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */,
 				F1B9B45D27B25FF7006028A0 /* AppTabView.swift in Sources */,
 				F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */,
 				F1B9B44927B25CA7006028A0 /* DubDubGrubApp.swift in Sources */,
