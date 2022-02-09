@@ -1,46 +1,11 @@
 //
-//  LocationListView.swift
+//  LocationCell.swift
 //  DubDubGrub
 //
-//  Created by M100-M1MacMini on 2022/2/8.
+//  Created by M100-M1MacMini on 2022/2/9.
 //
 
 import SwiftUI
-
-struct LocationListView: View {
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(0..<9) { item in
-                    NavigationLink(destination: LocationDetailView()) {
-                        LocationCell()
-                    }
-                }
-            }
-            .navigationTitle("Grub Spots")
-            .listStyle(.plain)
-        }
-    }
-}
-
-struct LocationListView_Previews: PreviewProvider {
-    static var previews: some View {
-        LocationListView()
-    }
-}
-
-struct AvatarView: View {
-    
-    let size: CGFloat
-    
-    var body: some View {
-        Image("default-avatar")
-            .resizable()
-            .scaledToFit()
-            .frame(width: size, height: size)
-            .clipShape(Circle())
-    }
-}
 
 struct LocationCell: View {
     
@@ -71,5 +36,11 @@ struct LocationCell: View {
             .frame(width: 200)
             .padding(.leading)
         }
+    }
+}
+
+struct LocationCell_Previews: PreviewProvider {
+    static var previews: some View {
+        LocationCell()
     }
 }
