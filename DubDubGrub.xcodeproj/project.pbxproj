@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F172046D27B641B600542394 /* CKRecordExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172046C27B641B600542394 /* CKRecordExt.swift */; };
+		F172046F27B643E000542394 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172046E27B643E000542394 /* AlertItem.swift */; };
+		F172047227B6493C00542394 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047127B6493C00542394 /* LocationMapViewModel.swift */; };
 		F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910BF27B3A7C600130796 /* LocationCell.swift */; };
 		F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C127B3A7FB00130796 /* AvatarView.swift */; };
 		F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C327B3AAE600130796 /* CustomModifiers.swift */; };
@@ -32,6 +34,8 @@
 
 /* Begin PBXFileReference section */
 		F172046C27B641B600542394 /* CKRecordExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordExt.swift; sourceTree = "<group>"; };
+		F172046E27B643E000542394 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
+		F172047127B6493C00542394 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
 		F1A910BF27B3A7C600130796 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F1A910C127B3A7FB00130796 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		F1A910C327B3AAE600130796 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -68,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F172047027B6491400542394 /* LocationMapView */ = {
+			isa = PBXGroup;
+			children = (
+				F1B9B45E27B26031006028A0 /* LocationMapView.swift */,
+				F172047127B6493C00542394 /* LocationMapViewModel.swift */,
+			);
+			path = LocationMapView;
+			sourceTree = "<group>";
+		};
 		F1A910C927B3B6CA00130796 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +105,8 @@
 		F1A910CB27B3B6EE00130796 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F172047027B6491400542394 /* LocationMapView */,
 				F1B9B45C27B25FF7006028A0 /* AppTabView.swift */,
-				F1B9B45E27B26031006028A0 /* LocationMapView.swift */,
 				F1B9B46027B2606F006028A0 /* LocationListView.swift */,
 				F1B9B46427B3634D006028A0 /* LocationDetailView.swift */,
 				F1B9B46227B26085006028A0 /* ProfileView.swift */,
@@ -181,6 +194,7 @@
 				F1A910C927B3B6CA00130796 /* Extensions */,
 				F1EA00B627B60D9400FB326E /* CloudtKitManager.swift */,
 				F1EA00B827B62F7000FB326E /* Constants.swift */,
+				F172046E27B643E000542394 /* AlertItem.swift */,
 			);
 			path = Utilties;
 			sourceTree = "<group>";
@@ -259,6 +273,7 @@
 				F1EA00B927B62F7000FB326E /* Constants.swift in Sources */,
 				F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */,
 				F1B9B45F27B26031006028A0 /* LocationMapView.swift in Sources */,
+				F172047227B6493C00542394 /* LocationMapViewModel.swift in Sources */,
 				F1B9B46127B2606F006028A0 /* LocationListView.swift in Sources */,
 				F1A910D427B519F900130796 /* MockData.swift in Sources */,
 				F1A910C627B3AB2E00130796 /* ViewExt.swift in Sources */,
@@ -267,6 +282,7 @@
 				F1A910D027B5113F00130796 /* DDGLocation.swift in Sources */,
 				F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */,
 				F1B9B45D27B25FF7006028A0 /* AppTabView.swift in Sources */,
+				F172046F27B643E000542394 /* AlertItem.swift in Sources */,
 				F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */,
 				F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */,
 				F1A910C827B3B43A00130796 /* DDGButton.swift in Sources */,
