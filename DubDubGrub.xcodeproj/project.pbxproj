@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F172046D27B641B600542394 /* CKRecordExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172046C27B641B600542394 /* CKRecordExt.swift */; };
 		F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910BF27B3A7C600130796 /* LocationCell.swift */; };
 		F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C127B3A7FB00130796 /* AvatarView.swift */; };
 		F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C327B3AAE600130796 /* CustomModifiers.swift */; };
@@ -25,9 +26,12 @@
 		F1B9B46127B2606F006028A0 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46027B2606F006028A0 /* LocationListView.swift */; };
 		F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46227B26085006028A0 /* ProfileView.swift */; };
 		F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46427B3634D006028A0 /* LocationDetailView.swift */; };
+		F1EA00B727B60D9400FB326E /* CloudtKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA00B627B60D9400FB326E /* CloudtKitManager.swift */; };
+		F1EA00B927B62F7000FB326E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA00B827B62F7000FB326E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F172046C27B641B600542394 /* CKRecordExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordExt.swift; sourceTree = "<group>"; };
 		F1A910BF27B3A7C600130796 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F1A910C127B3A7FB00130796 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		F1A910C327B3AAE600130796 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -48,6 +52,8 @@
 		F1B9B46027B2606F006028A0 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		F1B9B46227B26085006028A0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		F1B9B46427B3634D006028A0 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		F1EA00B627B60D9400FB326E /* CloudtKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudtKitManager.swift; sourceTree = "<group>"; };
+		F1EA00B827B62F7000FB326E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,7 @@
 			children = (
 				F1B9B45A27B25F65006028A0 /* ColorExt.swift */,
 				F1A910C527B3AB2E00130796 /* ViewExt.swift */,
+				F172046C27B641B600542394 /* CKRecordExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -143,8 +150,8 @@
 			children = (
 				F1B9B45627B25D2C006028A0 /* DubDubGrub.entitlements */,
 				F1B9B44827B25CA7006028A0 /* DubDubGrubApp.swift */,
+				F1EA00B527B60D2900FB326E /* Utilties */,
 				F1A910CE27B5106400130796 /* Model */,
-				F1A910C927B3B6CA00130796 /* Extensions */,
 				F1A910CA27B3B6E100130796 /* Views */,
 				F1B9B44C27B25CA8006028A0 /* Assets.xcassets */,
 				F1B9B44E27B25CA8006028A0 /* Preview Content */,
@@ -166,6 +173,16 @@
 				F1B9B45827B25D41006028A0 /* CloudKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1EA00B527B60D2900FB326E /* Utilties */ = {
+			isa = PBXGroup;
+			children = (
+				F1A910C927B3B6CA00130796 /* Extensions */,
+				F1EA00B627B60D9400FB326E /* CloudtKitManager.swift */,
+				F1EA00B827B62F7000FB326E /* Constants.swift */,
+			);
+			path = Utilties;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,12 +256,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1B9B45B27B25F65006028A0 /* ColorExt.swift in Sources */,
+				F1EA00B927B62F7000FB326E /* Constants.swift in Sources */,
 				F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */,
 				F1B9B45F27B26031006028A0 /* LocationMapView.swift in Sources */,
 				F1B9B46127B2606F006028A0 /* LocationListView.swift in Sources */,
 				F1A910D427B519F900130796 /* MockData.swift in Sources */,
 				F1A910C627B3AB2E00130796 /* ViewExt.swift in Sources */,
 				F1A910D227B5177E00130796 /* DDGProfile.swift in Sources */,
+				F172046D27B641B600542394 /* CKRecordExt.swift in Sources */,
 				F1A910D027B5113F00130796 /* DDGLocation.swift in Sources */,
 				F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */,
 				F1B9B45D27B25FF7006028A0 /* AppTabView.swift in Sources */,
@@ -253,6 +272,7 @@
 				F1A910C827B3B43A00130796 /* DDGButton.swift in Sources */,
 				F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */,
 				F1B9B44927B25CA7006028A0 /* DubDubGrubApp.swift in Sources */,
+				F1EA00B727B60D9400FB326E /* CloudtKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +412,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -422,6 +443,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
