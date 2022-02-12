@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35E63AD627B8332F003C5AF6 /* CKAssetExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E63AD527B8332F003C5AF6 /* CKAssetExt.swift */; };
 		F172046D27B641B600542394 /* CKRecordExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172046C27B641B600542394 /* CKRecordExt.swift */; };
 		F172046F27B643E000542394 /* AlertItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172046E27B643E000542394 /* AlertItem.swift */; };
 		F172047227B6493C00542394 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047127B6493C00542394 /* LocationMapViewModel.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35E63AD527B8332F003C5AF6 /* CKAssetExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKAssetExt.swift; sourceTree = "<group>"; };
 		F172046C27B641B600542394 /* CKRecordExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordExt.swift; sourceTree = "<group>"; };
 		F172046E27B643E000542394 /* AlertItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertItem.swift; sourceTree = "<group>"; };
 		F172047127B6493C00542394 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				F1B9B45A27B25F65006028A0 /* ColorExt.swift */,
 				F1A910C527B3AB2E00130796 /* ViewExt.swift */,
 				F172046C27B641B600542394 /* CKRecordExt.swift */,
+				35E63AD527B8332F003C5AF6 /* CKAssetExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				F172047527B6518E00542394 /* LocationManager.swift in Sources */,
 				F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */,
 				F1B9B44927B25CA7006028A0 /* DubDubGrubApp.swift in Sources */,
+				35E63AD627B8332F003C5AF6 /* CKAssetExt.swift in Sources */,
 				F1EA00B727B60D9400FB326E /* CloudtKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
