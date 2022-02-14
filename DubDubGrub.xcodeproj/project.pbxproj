@@ -16,6 +16,7 @@
 		F172047227B6493C00542394 /* LocationMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047127B6493C00542394 /* LocationMapViewModel.swift */; };
 		F172047527B6518E00542394 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047427B6518E00542394 /* LocationManager.swift */; };
 		F172047927BA3B6400542394 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047827BA3B6400542394 /* PhotoPicker.swift */; };
+		F172047B27BA5A9900542394 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047A27BA5A9900542394 /* UIImageExt.swift */; };
 		F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910BF27B3A7C600130796 /* LocationCell.swift */; };
 		F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C127B3A7FB00130796 /* AvatarView.swift */; };
 		F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C327B3AAE600130796 /* CustomModifiers.swift */; };
@@ -49,6 +50,7 @@
 		F172047127B6493C00542394 /* LocationMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapViewModel.swift; sourceTree = "<group>"; };
 		F172047427B6518E00542394 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F172047827BA3B6400542394 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		F172047A27BA5A9900542394 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		F1A910BF27B3A7C600130796 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F1A910C127B3A7FB00130796 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		F1A910C327B3AAE600130796 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				F1A910C527B3AB2E00130796 /* ViewExt.swift */,
 				F172046C27B641B600542394 /* CKRecordExt.swift */,
 				35E63AD527B8332F003C5AF6 /* CKAssetExt.swift */,
+				F172047A27BA5A9900542394 /* UIImageExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				F1A910D227B5177E00130796 /* DDGProfile.swift in Sources */,
 				F172046D27B641B600542394 /* CKRecordExt.swift in Sources */,
 				F172047927BA3B6400542394 /* PhotoPicker.swift in Sources */,
+				F172047B27BA5A9900542394 /* UIImageExt.swift in Sources */,
 				F1A910D027B5113F00130796 /* DDGLocation.swift in Sources */,
 				F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */,
 				F1B9B45D27B25FF7006028A0 /* AppTabView.swift in Sources */,
