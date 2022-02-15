@@ -30,6 +30,7 @@ struct AppTabView: View {
                 Label("Profile", systemImage: "person")
             }
         }
+        .onAppear { CloudtKitManager.shared.getUserRecord() }
     }
 }
 

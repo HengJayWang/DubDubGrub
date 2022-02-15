@@ -24,7 +24,7 @@ final class ProfileViewModel: ObservableObject {
               !companyName.isEmpty,
               !bio.isEmpty,
               avatar != PlaceholderImage.avatar,
-              bio.count < 100 else { return false }
+              bio.count <= 100 else { return false }
         
         return true
     }
@@ -38,66 +38,54 @@ final class ProfileViewModel: ObservableObject {
         let profileRecord = createProfileRecord()
         
         // Step.2 Get our UserRecordID from the Container
-        CKContainer.default().fetchUserRecordID { recordID, error in
-            guard let recordID = recordID, error == nil else {
-                print(error!.localizedDescription)
-                return
-            }
-            // Step.3 Get UserRecord from the Public Database
-            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
-                guard let userRecord = userRecord, error == nil else {
-                    print(error!.localizedDescription)
-                    return
-                }
-                // Step.4 Create reference on UserRecord to the DDGProfile we created
-                userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
-                
-                // Step.5 Create a CKOperation to save our User and Profile Records
-                let operation = CKModifyRecordsOperation(recordsToSave: [userRecord, profileRecord])
-                operation.modifyRecordsCompletionBlock = { savedRecords, _, error in
-                    guard let savedRecords = savedRecords, error == nil else {
-                        print(error!.localizedDescription)
-                        return
-                    }
-                    print("CloudKit savedRecords: \(savedRecords)")
-                }
-                
-                CKContainer.default().publicCloudDatabase.add(operation)
+        // Step.3 Get UserRecord from the Public Database
+        guard let userRecord = CloudtKitManager.shared.userRecord else {
+            // show an alert
+            return
+        }
+        
+        // Step.4 Create reference on UserRecord to the DDGProfile we created
+        userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+        
+        // Step.5 Create a CKOperation to save our User and Profile Records
+        CloudtKitManager.shared.batchSave(records: [userRecord, profileRecord]) { result in
+            switch result {
+            case .success(_):
+                // show alert
+                break
+            case .failure(_):
+                // show alert
+                break
             }
         }
     }
     
     func getProfile() {
-        // Step.1
-        CKContainer.default().fetchUserRecordID { recordID, error in
-            guard let recordID = recordID, error == nil else {
-                print(error!.localizedDescription)
-                return
-            }
-            // Step.2
-            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
-                guard let userRecord = userRecord, error == nil else {
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                let profileReference = userRecord["userProfile"] as! CKRecord.Reference
-                let profileRecordID = profileReference.recordID
-                
-                CKContainer.default().publicCloudDatabase.fetch(withRecordID: profileRecordID) { profileRecord, error in
-                    guard let profileRecord = profileRecord, error == nil else {
-                        print(error!.localizedDescription)
-                        return
-                    }
-                    
-                    DispatchQueue.main.async {  [self] in
-                        let profile = DDGProfile(record: profileRecord)
-                        firstName   = profile.firstName
-                        lastName    = profile.lastName
-                        companyName = profile.companyName
-                        bio         = profile.bio
-                        avatar      = profile.createAvatarImage()
-                    }
+        
+        guard let userRecord = CloudtKitManager.shared.userRecord else {
+            // show an alert
+            return
+        }
+        
+        guard let profileReference = userRecord["userProfile"] as? CKRecord.Reference else {
+            return
+        }
+        
+        let profileRecordID = profileReference.recordID
+        
+        CloudtKitManager.shared.fetchRecord(with: profileRecordID) { result in
+            DispatchQueue.main.async {  [self] in
+                switch result {
+                case .success(let record):
+                    let profile = DDGProfile(record: record)
+                    firstName   = profile.firstName
+                    lastName    = profile.lastName
+                    companyName = profile.companyName
+                    bio         = profile.bio
+                    avatar      = profile.createAvatarImage()
+                case .failure(_):
+                    // show alert
+                    break
                 }
             }
         }
