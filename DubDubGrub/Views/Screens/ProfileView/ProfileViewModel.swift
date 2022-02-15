@@ -15,6 +15,7 @@ final class ProfileViewModel: ObservableObject {
     @Published var bio                  = ""
     @Published var avatar               = PlaceholderImage.avatar
     @Published var isShowingPhotoPicker = false
+    @Published var isLoading            = false
     @Published var alertItem: AlertItem?
     
     func isValidProfile() -> Bool {
@@ -40,7 +41,7 @@ final class ProfileViewModel: ObservableObject {
         // Step.2 Get our UserRecordID from the Container
         // Step.3 Get UserRecord from the Public Database
         guard let userRecord = CloudtKitManager.shared.userRecord else {
-            // show an alert
+            alertItem = AlertContext.noUserRecord
             return
         }
         
@@ -48,14 +49,19 @@ final class ProfileViewModel: ObservableObject {
         userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
         
         // Step.5 Create a CKOperation to save our User and Profile Records
+        showLoadingView()
         CloudtKitManager.shared.batchSave(records: [userRecord, profileRecord]) { result in
-            switch result {
-            case .success(_):
-                // show alert
-                break
-            case .failure(_):
-                // show alert
-                break
+            DispatchQueue.main.async { [self] in
+                hideLoadingView()
+                
+                switch result {
+                case .success(_):
+                    alertItem = AlertContext.createProfileSuccess
+                    break
+                case .failure(_):
+                    alertItem = AlertContext.createProfileFailure
+                    break
+                }
             }
         }
     }
@@ -63,7 +69,7 @@ final class ProfileViewModel: ObservableObject {
     func getProfile() {
         
         guard let userRecord = CloudtKitManager.shared.userRecord else {
-            // show an alert
+            alertItem = AlertContext.noUserRecord
             return
         }
         
@@ -73,8 +79,10 @@ final class ProfileViewModel: ObservableObject {
         
         let profileRecordID = profileReference.recordID
         
+        showLoadingView()
         CloudtKitManager.shared.fetchRecord(with: profileRecordID) { result in
             DispatchQueue.main.async {  [self] in
+                hideLoadingView()
                 switch result {
                 case .success(let record):
                     let profile = DDGProfile(record: record)
@@ -84,7 +92,7 @@ final class ProfileViewModel: ObservableObject {
                     bio         = profile.bio
                     avatar      = profile.createAvatarImage()
                 case .failure(_):
-                    // show alert
+                    alertItem = AlertContext.unableToGetProfile
                     break
                 }
             }
@@ -100,4 +108,7 @@ final class ProfileViewModel: ObservableObject {
         profileRecord[DDGProfile.kAvatar]       = avatar.convertToCKAsset()
         return profileRecord
     }
+    
+    private func showLoadingView() { isLoading = true }
+    private func hideLoadingView() { isLoading = false }
 }

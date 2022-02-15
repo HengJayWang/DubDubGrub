@@ -50,7 +50,7 @@ struct ProfileView: View {
                             .cornerRadius(4)
                     }
                 }
-
+                
                 TextEditor(text: $viewModel.bio)
                     .frame(height: 100)
                     .overlay(RoundedRectangle(cornerRadius: 8)
@@ -68,6 +68,9 @@ struct ProfileView: View {
             .buttonStyle(.borderedProminent)
             .padding(.bottom)
             
+        }
+        .overlay {
+            if viewModel.isLoading { LoadingView() }
         }
         .navigationTitle("Profile")
         .toolbar {

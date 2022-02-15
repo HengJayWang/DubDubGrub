@@ -64,7 +64,7 @@ final class CloudtKitManager {
                 completed(.failure(error!))
                 return
             }
-            print("savedRecords: \(savedRecords)")
+            
             completed(.success(savedRecords))
         }
         

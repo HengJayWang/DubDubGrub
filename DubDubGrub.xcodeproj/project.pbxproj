@@ -18,6 +18,7 @@
 		F172047927BA3B6400542394 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047827BA3B6400542394 /* PhotoPicker.swift */; };
 		F172047B27BA5A9900542394 /* UIImageExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047A27BA5A9900542394 /* UIImageExt.swift */; };
 		F172047E27BB7F4000542394 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047D27BB7F4000542394 /* ProfileViewModel.swift */; };
+		F172048027BBB29600542394 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047F27BBB29600542394 /* LoadingView.swift */; };
 		F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910BF27B3A7C600130796 /* LocationCell.swift */; };
 		F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C127B3A7FB00130796 /* AvatarView.swift */; };
 		F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C327B3AAE600130796 /* CustomModifiers.swift */; };
@@ -53,6 +54,7 @@
 		F172047827BA3B6400542394 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		F172047A27BA5A9900542394 /* UIImageExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExt.swift; sourceTree = "<group>"; };
 		F172047D27BB7F4000542394 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		F172047F27BBB29600542394 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F1A910BF27B3A7C600130796 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F1A910C127B3A7FB00130796 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		F1A910C327B3AAE600130796 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				35E63ADC27B93C83003C5AF6 /* Buttons */,
 				F1A910C127B3A7FB00130796 /* AvatarView.swift */,
 				35E63ADA27B935BC003C5AF6 /* LogoView.swift */,
+				F172047F27BBB29600542394 /* LoadingView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				F172047527B6518E00542394 /* LocationManager.swift in Sources */,
 				F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */,
 				35E63AD927B934B3003C5AF6 /* OnboardView.swift in Sources */,
+				F172048027BBB29600542394 /* LoadingView.swift in Sources */,
 				F1B9B44927B25CA7006028A0 /* DubDubGrubApp.swift in Sources */,
 				35E63AD627B8332F003C5AF6 /* CKAssetExt.swift in Sources */,
 				F1EA00B727B60D9400FB326E /* CloudtKitManager.swift in Sources */,
