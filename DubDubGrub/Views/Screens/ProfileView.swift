@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CloudKit
 
 struct ProfileView: View {
     
@@ -111,8 +112,42 @@ struct ProfileView: View {
             alertItem = AlertContext.invalidProfile
             return
         }
+        // Step.1 Create our CKRecord from the profile view
+        let profileRecord = CKRecord(recordType: RecordType.profile)
+        profileRecord[DDGProfile.kFirstName]    = firstName
+        profileRecord[DDGProfile.kLastName]     = lastName
+        profileRecord[DDGProfile.kCompanyName]  = companyName
+        profileRecord[DDGProfile.kBio]          = bio
+        profileRecord[DDGProfile.kAvatar]       = avatar.convertToCKAsset()
         
-        // Create our profile send it to cloudkit
+        // Step.2 Get our UserRecordID from the Container
+        CKContainer.default().fetchUserRecordID { recordID, error in
+            guard let recordID = recordID, error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            // Step.3 Get UserRecord from the Public Database
+            CKContainer.default().publicCloudDatabase.fetch(withRecordID: recordID) { userRecord, error in
+                guard let userRecord = userRecord, error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                // Step.4 Create reference on UserRecord to the DDGProfile we created
+                userRecord["userProfile"] = CKRecord.Reference(recordID: profileRecord.recordID, action: .none)
+                
+                // Step.5 Create a CKOperation to save our User and Profile Records
+                let operation = CKModifyRecordsOperation(recordsToSave: [userRecord, profileRecord])
+                operation.modifyRecordsCompletionBlock = { savedRecords, _, error in
+                    guard let savedRecords = savedRecords, error == nil else {
+                        print(error!.localizedDescription)
+                        return
+                    }
+                    print("CloudKit savedRecords: \(savedRecords)")
+                }
+                
+                CKContainer.default().publicCloudDatabase.add(operation)
+            }
+        }
     }
 }
 
