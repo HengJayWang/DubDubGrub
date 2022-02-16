@@ -20,6 +20,7 @@
 		F172047E27BB7F4000542394 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047D27BB7F4000542394 /* ProfileViewModel.swift */; };
 		F172048027BBB29600542394 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172047F27BBB29600542394 /* LoadingView.swift */; };
 		F172048327BCEE2F00542394 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172048227BCEE2F00542394 /* LocationDetailViewModel.swift */; };
+		F172048527BCFDEB00542394 /* ProfileModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F172048427BCFDEB00542394 /* ProfileModalView.swift */; };
 		F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910BF27B3A7C600130796 /* LocationCell.swift */; };
 		F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C127B3A7FB00130796 /* AvatarView.swift */; };
 		F1A910C427B3AAE600130796 /* CustomModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A910C327B3AAE600130796 /* CustomModifiers.swift */; };
@@ -57,6 +58,7 @@
 		F172047D27BB7F4000542394 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		F172047F27BBB29600542394 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F172048227BCEE2F00542394 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		F172048427BCFDEB00542394 /* ProfileModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModalView.swift; sourceTree = "<group>"; };
 		F1A910BF27B3A7C600130796 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		F1A910C127B3A7FB00130796 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		F1A910C327B3AAE600130796 /* CustomModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifiers.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			children = (
 				F1B9B46427B3634D006028A0 /* LocationDetailView.swift */,
 				F172048227BCEE2F00542394 /* LocationDetailViewModel.swift */,
+				F172048427BCFDEB00542394 /* ProfileModalView.swift */,
 			);
 			path = LocationDetailVIew;
 			sourceTree = "<group>";
@@ -172,8 +175,8 @@
 		F1A910CB27B3B6EE00130796 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F172048127BCEDFC00542394 /* LocationDetailVIew */,
 				F172047027B6491400542394 /* LocationMapView */,
+				F172048127BCEDFC00542394 /* LocationDetailVIew */,
 				F172047C27BB7F2000542394 /* ProfileView */,
 				F1B9B45C27B25FF7006028A0 /* AppTabView.swift */,
 				F1B9B46027B2606F006028A0 /* LocationListView.swift */,
@@ -362,6 +365,7 @@
 				35E63ADE27B93C9A003C5AF6 /* XDismissButton.swift in Sources */,
 				F172046F27B643E000542394 /* AlertItem.swift in Sources */,
 				F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */,
+				F172048527BCFDEB00542394 /* ProfileModalView.swift in Sources */,
 				F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */,
 				F1A910C827B3B43A00130796 /* DDGButton.swift in Sources */,
 				F172047527B6518E00542394 /* LocationManager.swift in Sources */,
