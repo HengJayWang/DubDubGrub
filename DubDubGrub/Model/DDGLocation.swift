@@ -26,7 +26,7 @@ struct DDGLocation: Identifiable {
     let address: String
     let location: CLLocation
     let websiteURL: String
-    let phoneNuber: String
+    let phoneNumber: String
     
     init(record: CKRecord) {
         id          = record.recordID
@@ -37,7 +37,7 @@ struct DDGLocation: Identifiable {
         address     = record[DDGLocation.kAddress] as? String ?? "N/A"
         location    = record[DDGLocation.kLocation] as? CLLocation ?? CLLocation(latitude: 0, longitude: 0)
         websiteURL  = record[DDGLocation.kWebsiteURL] as? String ?? "N/A"
-        phoneNuber  = record[DDGLocation.kPhoneNumber] as? String ?? "N/A"
+        phoneNumber = record[DDGLocation.kPhoneNumber] as? String ?? "N/A"
     }
     
     func createSquareImage() -> UIImage {

@@ -29,6 +29,7 @@ struct AppTabView: View {
             .tabItem {
                 Label("Profile", systemImage: "person")
             }
+            .navigationViewStyle(StackNavigationViewStyle())
         }
         .onAppear { CloudKitManager.shared.getUserRecord() }
     }
