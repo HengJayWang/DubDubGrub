@@ -44,7 +44,7 @@ struct LocationDetailView: View {
                             LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
                         }
                         Button {
-                            
+                            viewModel.updateCheckInStatus(to: .checkedIn)
                         } label: {
                             LocationActionButton(color: .pink, imageName: "person.fill.checkmark")
                         }
@@ -60,7 +60,9 @@ struct LocationDetailView: View {
                     LazyVGrid(columns: viewModel.columns) {
                         FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "firstName")
                             .onTapGesture {
-                                viewModel.isShowingProfileModal = true
+                                withAnimation(.easeInOut(duration: 0.3)) {
+                                    viewModel.isShowingProfileModal = true
+                                }
                             }
                     }
                 }
@@ -80,7 +82,7 @@ struct LocationDetailView: View {
                 ProfileModalView(isShowingProfileModal: $viewModel.isShowingProfileModal,
                                  profile: DDGProfile(record: MockData.profile))
                     .transition(.opacity.combined(with: .slide))
-                    .animation(.default)
+                    .animation(.easeInOut)
                     .zIndex(2)
             }
         }
