@@ -21,4 +21,14 @@ struct MockData {
         return record
     }
     
+    static var profile: CKRecord {
+        let record                      = CKRecord(recordType: RecordType.profile)
+        record[DDGProfile.kFirstName]   = "Sean"
+        record[DDGProfile.kLastName]    = "Allen"
+        record[DDGProfile.kCompanyName] = "Best Company."
+        record[DDGProfile.kBio]         = "This is my sample bio. Let's keep typing to see how long we can make this to padding 3 lines ..."
+        
+        return record
+    }
+    
 }
