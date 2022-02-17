@@ -44,9 +44,10 @@ struct LocationDetailView: View {
                             LocationActionButton(color: .brandPrimary, imageName: "phone.fill")
                         }
                         Button {
-                            viewModel.updateCheckInStatus(to: .checkedIn)
+                            viewModel.updateCheckInStatus(to: viewModel.isCheckedIn ? .checkedOut : .checkedIn)
                         } label: {
-                            LocationActionButton(color: .pink, imageName: "person.fill.checkmark")
+                            LocationActionButton(color: viewModel.isCheckedIn ? .pink : .brandPrimary,
+                                                 imageName: viewModel.isCheckedIn ? "person.fill.xmark" : "person.fill.checkmark")
                         }
                     }
                 }
@@ -58,12 +59,14 @@ struct LocationDetailView: View {
                 
                 ScrollView {
                     LazyVGrid(columns: viewModel.columns) {
-                        FirstNameAvatarView(image: PlaceholderImage.avatar, firstName: "firstName")
-                            .onTapGesture {
-                                withAnimation(.easeInOut(duration: 0.3)) {
-                                    viewModel.isShowingProfileModal = true
+                        ForEach(viewModel.checkedInProfiles) { profile in
+                            FirstNameAvatarView(profile: profile)
+                                .onTapGesture {
+                                    withAnimation(.easeInOut(duration: 0.3)) {
+                                        viewModel.isShowingProfileModal = true
+                                    }
                                 }
-                            }
+                        }
                     }
                 }
                 
@@ -86,6 +89,7 @@ struct LocationDetailView: View {
                     .zIndex(2)
             }
         }
+        .onAppear { viewModel.getCheckedInProfiles() }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
@@ -128,13 +132,12 @@ struct LocationActionButton: View {
 
 struct FirstNameAvatarView: View {
     
-    var image: UIImage
-    let firstName: String
+    let profile: DDGProfile
     
     var body: some View {
         VStack {
-            AvatarView(image: image, size: 64)
-            Text(firstName)
+            AvatarView(image: profile.createAvatarImage(), size: 64)
+            Text(profile.firstName)
                 .bold()
                 .lineLimit(1)
                 .minimumScaleFactor(0.75)

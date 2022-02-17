@@ -13,8 +13,10 @@ enum CheckInStatus { case checkedIn, checkedOut }
 
 final class LocationDetailViewModel: ObservableObject {
     
-    @Published var alertItem: AlertItem?
+    @Published var checkedInProfiles: [DDGProfile] = []
     @Published var isShowingProfileModal = false
+    @Published var isCheckedIn = false
+    @Published var alertItem: AlertItem?
     
     let columns = [GridItem(.flexible()),
                    GridItem(.flexible()),
@@ -67,15 +69,39 @@ final class LocationDetailViewModel: ObservableObject {
                 // Step 3. Save the updated profile to CloudKit
                 CloudKitManager.shared.save(record: record) { result in
                     // update our checkedInProfile array
-                    switch result {
-                    case .success(_):
-                        print("✅ Checked In/Out Successfully!")
-                    case .failure(_):
-                        print("⛔️ save record Failed!")
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(_):
+                            let profile = DDGProfile(record: record)
+                            switch checkedInStatus {
+                            case .checkedIn:
+                                checkedInProfiles.append(profile)
+                                print("✅ Checked In Successfully!")
+                            case .checkedOut:
+                                checkedInProfiles.removeAll(where: { $0.id == profile.id })
+                                print("✅ Checked Out Successfully!")
+                            }
+                            isCheckedIn = checkedInStatus == .checkedIn
+                        case .failure(_):
+                            print("⛔️ save record Failed!")
+                        }
                     }
                 }
             case .failure(_):
                 print("⛔️ fetch record Failed!")
+            }
+        }
+    }
+    
+    func getCheckedInProfiles() {
+        CloudKitManager.shared.getCheckedInProfiles(for: location.id) { [self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let profiles):
+                    checkedInProfiles = profiles
+                case .failure(_):
+                    print("⛔️ fetch checkedInProfiles Failed!")
+                }
             }
         }
     }
