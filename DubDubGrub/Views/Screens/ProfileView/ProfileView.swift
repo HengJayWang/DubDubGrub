@@ -34,29 +34,32 @@ struct ProfileView: View {
             
             VStack {
                 HStack {
-                    
                     CharactersRemainView(bioCount: viewModel.bio.count)
                     
                     Spacer()
                     
-                    Button {
-                        
-                    } label: {
-                        Label("Check Out", systemImage: "mappin.and.ellipse")
-                            .font(.system(size: 12, weight: .bold, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(4)
-                            .background(Color.pink)
-                            .cornerRadius(4)
+                    if viewModel.isCheckedIn {
+                        Button {
+                            viewModel.checkOut()
+                        } label: {
+                            Label("Check Out", systemImage: "mappin.and.ellipse")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .frame(height: 28)
+                                .background(Color.grubRed)
+                                .cornerRadius(8)
+                        }
                     }
                 }
+                .frame(height: 32)
                 
                 TextEditor(text: $viewModel.bio)
                     .frame(height: 100)
                     .overlay(RoundedRectangle(cornerRadius: 8)
                                 .stroke(.secondary, lineWidth: 2))
             }
-            .padding()
+            .padding(.horizontal)
             
             Spacer()
             
@@ -81,7 +84,10 @@ struct ProfileView: View {
                 Image(systemName: "keyboard.chevron.compact.down")
             }
         }
-        .onAppear { viewModel.getProfile() }
+        .onAppear {
+            viewModel.getProfile()
+            viewModel.getCheckedInStatus()
+        }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
