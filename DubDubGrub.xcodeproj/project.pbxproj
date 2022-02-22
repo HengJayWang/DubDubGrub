@@ -41,6 +41,7 @@
 		F1B9B46527B3634D006028A0 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B9B46427B3634D006028A0 /* LocationDetailView.swift */; };
 		F1EA00B727B60D9400FB326E /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA00B627B60D9400FB326E /* CloudKitManager.swift */; };
 		F1EA00B927B62F7000FB326E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA00B827B62F7000FB326E /* Constants.swift */; };
+		F1FA12E927C4B8780027D7A5 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA12E827C4B8780027D7A5 /* LocationListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		F1B9B46427B3634D006028A0 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
 		F1EA00B627B60D9400FB326E /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		F1EA00B827B62F7000FB326E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F1FA12E827C4B8780027D7A5 /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,7 +168,6 @@
 			children = (
 				F1A910C327B3AAE600130796 /* CustomModifiers.swift */,
 				F1A910CD27B3B79600130796 /* CustomViews */,
-				F1A910CC27B3B78900130796 /* Cells */,
 				F1A910CB27B3B6EE00130796 /* Screens */,
 			);
 			path = Views;
@@ -175,22 +176,14 @@
 		F1A910CB27B3B6EE00130796 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F1FA12E727C4B82B0027D7A5 /* LocationListView */,
 				F172047027B6491400542394 /* LocationMapView */,
 				F172048127BCEDFC00542394 /* LocationDetailVIew */,
 				F172047C27BB7F2000542394 /* ProfileView */,
 				F1B9B45C27B25FF7006028A0 /* AppTabView.swift */,
-				F1B9B46027B2606F006028A0 /* LocationListView.swift */,
 				35E63AD827B934B3003C5AF6 /* OnboardView.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		F1A910CC27B3B78900130796 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				F1A910BF27B3A7C600130796 /* LocationCell.swift */,
-			);
-			path = Cells;
 			sourceTree = "<group>";
 		};
 		F1A910CD27B3B79600130796 /* CustomViews */ = {
@@ -272,6 +265,16 @@
 				F172046E27B643E000542394 /* AlertItem.swift */,
 			);
 			path = Utilties;
+			sourceTree = "<group>";
+		};
+		F1FA12E727C4B82B0027D7A5 /* LocationListView */ = {
+			isa = PBXGroup;
+			children = (
+				F1A910BF27B3A7C600130796 /* LocationCell.swift */,
+				F1B9B46027B2606F006028A0 /* LocationListView.swift */,
+				F1FA12E827C4B8780027D7A5 /* LocationListViewModel.swift */,
+			);
+			path = LocationListView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +370,7 @@
 				F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */,
 				F172048527BCFDEB00542394 /* ProfileModalView.swift in Sources */,
 				F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */,
+				F1FA12E927C4B8780027D7A5 /* LocationListViewModel.swift in Sources */,
 				F1A910C827B3B43A00130796 /* DDGButton.swift in Sources */,
 				F172047527B6518E00542394 /* LocationManager.swift in Sources */,
 				F1A910C227B3A7FB00130796 /* AvatarView.swift in Sources */,
