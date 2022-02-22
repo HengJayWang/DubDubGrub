@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct LocationMapView: View {
+    
     @EnvironmentObject private var locationManager: LocationManager
     @StateObject private var viewModel = LocationMapViewModel()
     
@@ -17,7 +18,13 @@ struct LocationMapView: View {
             Map(coordinateRegion: $viewModel.region,
                 showsUserLocation: true,
                 annotationItems: locationManager.locations) { ddgLocation in
-                MapMarker(coordinate: ddgLocation.location.coordinate, tint: .brandPrimary)
+                MapAnnotation(coordinate: ddgLocation.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
+                    DDGAnnotation(location: ddgLocation)
+                        .onTapGesture {
+                            locationManager.selectedLocation = ddgLocation
+                            viewModel.isShowingDetailView = true
+                        }
+                }
             }
             .accentColor(.grubRed)
             .ignoresSafeArea()
@@ -28,16 +35,18 @@ struct LocationMapView: View {
                 Spacer()
             }
         }
-        .sheet(isPresented: $viewModel.isShowingOnboardView,
-               onDismiss: viewModel.checkLocationServicesIsEnabled) {
-            OnboardView(isShowingOnboardView: $viewModel.isShowingOnboardView)
-        }
         .alert(item: $viewModel.alertItem, content: { alertItem in
             Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
         })
+        .sheet(isPresented: $viewModel.isShowingDetailView) {
+            NavigationView {
+                LocationDetailView(viewModel: LocationDetailViewModel(location: locationManager.selectedLocation!))
+                    .toolbar {
+                        Button("Dismiss", action: { viewModel.isShowingDetailView = false })
+                    }
+            }
+        }
         .onAppear {
-            viewModel.runStartupChecks()
-            
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AppTabView: View {
     
+    @StateObject private var viewModel = AppTabViewModel()
+    
     init() {
         UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
     }
@@ -31,7 +33,14 @@ struct AppTabView: View {
             }
             .navigationViewStyle(StackNavigationViewStyle())
         }
-        .onAppear { CloudKitManager.shared.getUserRecord() }
+        .onAppear {
+            CloudKitManager.shared.getUserRecord()
+            viewModel.runStartupChecks()
+        }
+        .sheet(isPresented: $viewModel.isShowingOnboardView,
+               onDismiss: viewModel.checkLocationServicesIsEnabled) {
+            OnboardView(isShowingOnboardView: $viewModel.isShowingOnboardView)
+        }
     }
 }
 

@@ -43,6 +43,8 @@
 		F1EA00B927B62F7000FB326E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1EA00B827B62F7000FB326E /* Constants.swift */; };
 		F1FA12E927C4B8780027D7A5 /* LocationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA12E827C4B8780027D7A5 /* LocationListViewModel.swift */; };
 		F1FA12EC27C4DB120027D7A5 /* MapBalloon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA12EB27C4DB120027D7A5 /* MapBalloon.swift */; };
+		F1FA12EE27C4E23D0027D7A5 /* DDGAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA12ED27C4E23D0027D7A5 /* DDGAnnotation.swift */; };
+		F1FA12F127C4E97F0027D7A5 /* AppTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FA12F027C4E97F0027D7A5 /* AppTabViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		F1EA00B827B62F7000FB326E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F1FA12E827C4B8780027D7A5 /* LocationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListViewModel.swift; sourceTree = "<group>"; };
 		F1FA12EB27C4DB120027D7A5 /* MapBalloon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBalloon.swift; sourceTree = "<group>"; };
+		F1FA12ED27C4E23D0027D7A5 /* DDGAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDGAnnotation.swift; sourceTree = "<group>"; };
+		F1FA12F027C4E97F0027D7A5 /* AppTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,11 +182,11 @@
 		F1A910CB27B3B6EE00130796 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F1FA12E727C4B82B0027D7A5 /* LocationListView */,
+				F1FA12EF27C4E9380027D7A5 /* AppTabView */,
 				F172047027B6491400542394 /* LocationMapView */,
+				F1FA12E727C4B82B0027D7A5 /* LocationListView */,
 				F172048127BCEDFC00542394 /* LocationDetailVIew */,
 				F172047C27BB7F2000542394 /* ProfileView */,
-				F1B9B45C27B25FF7006028A0 /* AppTabView.swift */,
 				35E63AD827B934B3003C5AF6 /* OnboardView.swift */,
 			);
 			path = Screens;
@@ -284,8 +288,18 @@
 			isa = PBXGroup;
 			children = (
 				F1FA12EB27C4DB120027D7A5 /* MapBalloon.swift */,
+				F1FA12ED27C4E23D0027D7A5 /* DDGAnnotation.swift */,
 			);
 			path = "Map Annotation";
+			sourceTree = "<group>";
+		};
+		F1FA12EF27C4E9380027D7A5 /* AppTabView */ = {
+			isa = PBXGroup;
+			children = (
+				F1B9B45C27B25FF7006028A0 /* AppTabView.swift */,
+				F1FA12F027C4E97F0027D7A5 /* AppTabViewModel.swift */,
+			);
+			path = AppTabView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +383,7 @@
 				F1A910D427B519F900130796 /* MockData.swift in Sources */,
 				F1A910C627B3AB2E00130796 /* ViewExt.swift in Sources */,
 				F1A910D227B5177E00130796 /* DDGProfile.swift in Sources */,
+				F1FA12F127C4E97F0027D7A5 /* AppTabViewModel.swift in Sources */,
 				F172046D27B641B600542394 /* CKRecordExt.swift in Sources */,
 				F172047927BA3B6400542394 /* PhotoPicker.swift in Sources */,
 				F172047B27BA5A9900542394 /* UIImageExt.swift in Sources */,
@@ -380,6 +395,7 @@
 				F172046F27B643E000542394 /* AlertItem.swift in Sources */,
 				F1B9B46327B26085006028A0 /* ProfileView.swift in Sources */,
 				F172048527BCFDEB00542394 /* ProfileModalView.swift in Sources */,
+				F1FA12EE27C4E23D0027D7A5 /* DDGAnnotation.swift in Sources */,
 				F1A910C027B3A7C600130796 /* LocationCell.swift in Sources */,
 				F1FA12E927C4B8780027D7A5 /* LocationListViewModel.swift in Sources */,
 				F1A910C827B3B43A00130796 /* DDGButton.swift in Sources */,

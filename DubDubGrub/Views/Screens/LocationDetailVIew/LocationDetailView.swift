@@ -112,13 +112,6 @@ struct LocationDetailView: View {
         })
         .navigationTitle(viewModel.location.name)
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .destructiveAction) {
-                Button("Dismiss") {
-                    
-                }
-            }
-        }
     }
 }
 
