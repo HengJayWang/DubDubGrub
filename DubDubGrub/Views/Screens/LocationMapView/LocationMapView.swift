@@ -19,7 +19,8 @@ struct LocationMapView: View {
                 showsUserLocation: true,
                 annotationItems: locationManager.locations) { ddgLocation in
                 MapAnnotation(coordinate: ddgLocation.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
-                    DDGAnnotation(location: ddgLocation)
+                    DDGAnnotation(location: ddgLocation,
+                                  number: viewModel.checkedInProfiles[ddgLocation.id, default: 0])
                         .onTapGesture {
                             locationManager.selectedLocation = ddgLocation
                             viewModel.isShowingDetailView = true
@@ -50,6 +51,7 @@ struct LocationMapView: View {
             if locationManager.locations.isEmpty {
                 viewModel.getLocations(for: locationManager)
             }
+            viewModel.getCheckedInCounts()
         }
     }
 }
