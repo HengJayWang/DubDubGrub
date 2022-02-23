@@ -26,8 +26,8 @@ final class ProfileViewModel: ObservableObject {
         didSet { profileContext = .update }
     }
     
-    func isValidProfile() -> Bool {
-        
+    
+    private func isValidProfile() -> Bool {
         guard !firstName.isEmpty,
               !lastName.isEmpty,
               !companyName.isEmpty,
@@ -37,6 +37,7 @@ final class ProfileViewModel: ObservableObject {
         
         return true
     }
+    
     
     func getCheckedInStatus() {
         guard let profileRecordID = CloudKitManager.shared.profileRecordID else { return }
@@ -50,12 +51,14 @@ final class ProfileViewModel: ObservableObject {
                     } else {
                         isCheckedIn = false
                     }
+                    
                 case .failure(_):
                     break
                 }
             }
         }
     }
+    
     
     func checkOut() {
         guard let profileID = CloudKitManager.shared.profileRecordID else {
@@ -79,11 +82,13 @@ final class ProfileViewModel: ObservableObject {
                         }
                     }
                 }
+                
             case .failure(_):
                 DispatchQueue.main.async { self.alertItem = AlertContext.unableToCheckInOrOut }
             }
         }
     }
+    
     
     func createProfile() {
         guard isValidProfile() else {
@@ -116,7 +121,7 @@ final class ProfileViewModel: ObservableObject {
                         CloudKitManager.shared.profileRecordID = record.recordID
                     }
                     alertItem = AlertContext.createProfileSuccess
-                    break
+                    
                 case .failure(_):
                     alertItem = AlertContext.createProfileFailure
                     break
@@ -125,17 +130,14 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
+    
     func getProfile() {
-        
         guard let userRecord = CloudKitManager.shared.userRecord else {
             alertItem = AlertContext.noUserRecord
             return
         }
         
-        guard let profileReference = userRecord["userProfile"] as? CKRecord.Reference else {
-            return
-        }
-        
+        guard let profileReference = userRecord["userProfile"] as? CKRecord.Reference else { return }
         let profileRecordID = profileReference.recordID
         
         showLoadingView()
@@ -151,6 +153,7 @@ final class ProfileViewModel: ObservableObject {
                     companyName = profile.companyName
                     bio         = profile.bio
                     avatar      = profile.createAvatarImage()
+                    
                 case .failure(_):
                     alertItem = AlertContext.unableToGetProfile
                     break
@@ -158,6 +161,7 @@ final class ProfileViewModel: ObservableObject {
             }
         }
     }
+    
     
     func updateProfile() {
         guard isValidProfile() else {
@@ -190,6 +194,7 @@ final class ProfileViewModel: ObservableObject {
         }
     }
     
+    
     private func  createProfileRecord() -> CKRecord {
         let profileRecord = CKRecord(recordType: RecordType.profile)
         profileRecord[DDGProfile.kFirstName]    = firstName
@@ -199,6 +204,7 @@ final class ProfileViewModel: ObservableObject {
         profileRecord[DDGProfile.kAvatar]       = avatar.convertToCKAsset()
         return profileRecord
     }
+    
     
     private func showLoadingView() { isLoading = true }
     private func hideLoadingView() { isLoading = false }

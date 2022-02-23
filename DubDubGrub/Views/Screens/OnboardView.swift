@@ -19,15 +19,13 @@ struct OnboardView: View {
                 Button {
                     isShowingOnboardView = false
                 } label: {
-                    XDismissButton()
-                        .padding(8)
+                    XDismissButton().padding(8)
                 }
             }
             
             Spacer()
             
-            LogoView(frameWidth: 250)
-                .padding(.bottom)
+            LogoView(frameWidth: 250).padding(.bottom)
             
             VStack(alignment: .leading ,spacing: 24) {
                 OnboardInfoView(imageName: "building.2.crop.circle",

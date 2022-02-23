@@ -19,8 +19,7 @@ struct LocationMapView: View {
                 showsUserLocation: true,
                 annotationItems: locationManager.locations) { ddgLocation in
                 MapAnnotation(coordinate: ddgLocation.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.75)) {
-                    DDGAnnotation(location: ddgLocation,
-                                  number: viewModel.checkedInProfiles[ddgLocation.id, default: 0])
+                    DDGAnnotation(location: ddgLocation, number: viewModel.checkedInProfiles[ddgLocation.id, default: 0])
                         .onTapGesture {
                             locationManager.selectedLocation = ddgLocation
                             viewModel.isShowingDetailView = true
@@ -42,15 +41,11 @@ struct LocationMapView: View {
         .sheet(isPresented: $viewModel.isShowingDetailView) {
             NavigationView {
                 LocationDetailView(viewModel: LocationDetailViewModel(location: locationManager.selectedLocation!))
-                    .toolbar {
-                        Button("Dismiss", action: { viewModel.isShowingDetailView = false })
-                    }
+                    .toolbar { Button("Dismiss", action: { viewModel.isShowingDetailView = false } ) }
             }
         }
         .onAppear {
-            if locationManager.locations.isEmpty {
-                viewModel.getLocations(for: locationManager)
-            }
+            if locationManager.locations.isEmpty { viewModel.getLocations(for: locationManager) }
             viewModel.getCheckedInCounts()
         }
     }

@@ -5,9 +5,9 @@
 //  Created by M100-M1MacMini on 2022/2/16.
 //
 
-import SwiftUI
-import MapKit
 import CloudKit
+import MapKit
+import SwiftUI
 
 enum CheckInStatus { case checkedIn, checkedOut }
 
@@ -18,23 +18,23 @@ final class LocationDetailViewModel: ObservableObject {
     @Published var isCheckedIn = false
     @Published var isLoading = false
     @Published var alertItem: AlertItem?
-    
+
     let columns = [GridItem(.flexible()),
                    GridItem(.flexible()),
                    GridItem(.flexible())]
-    
+
     let location: DDGLocation
-    
-    init(location: DDGLocation) {
-        self.location = location
-    }
+
+    init(location: DDGLocation) { self.location = location }
+
     
     func getDirectionsToLocations() {
-        let placemark = MKPlacemark(coordinate: location.location.coordinate)
-        let mapitem = MKMapItem(placemark: placemark)
-        mapitem.name = location.name
+        let placemark   = MKPlacemark(coordinate: location.location.coordinate)
+        let mapitem     = MKMapItem(placemark: placemark)
+        mapitem.name    = location.name
         mapitem.openInMaps(launchOptions: [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking])
     }
+
     
     func callLocation() {
         guard let url = URL(string: "tel://\(location.phoneNumber)") else {
@@ -49,36 +49,38 @@ final class LocationDetailViewModel: ObservableObject {
         }
     }
     
+
     func getCheckedInStatus() {
         guard let profileRecordID = CloudKitManager.shared.profileRecordID else { return }
-        
+
         CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let record):
+                case let .success(record):
                     if let reference = record[DDGProfile.kIsCheckedIn] as? CKRecord.Reference {
                         isCheckedIn = reference.recordID == location.id
                     } else {
                         isCheckedIn = false
                     }
-                case .failure(_):
+
+                case .failure:
                     alertItem = AlertContext.unableToGetCheckInStatus
                 }
             }
         }
     }
+
     
     func updateCheckInStatus(to checkedInStatus: CheckInStatus) {
-        
         // Step 1. Retrieve the  DDGProfile
         guard let profileRecordID = CloudKitManager.shared.profileRecordID else {
             alertItem = AlertContext.unableToGetProfile
             return
         }
-        
+
         CloudKitManager.shared.fetchRecord(with: profileRecordID) { [self] result in
             switch result {
-            case .success(let record):
+            case let .success(record):
                 // Step 2. Create a reference to the location
                 switch checkedInStatus {
                 case .checkedIn:
@@ -93,7 +95,7 @@ final class LocationDetailViewModel: ObservableObject {
                     // update our checkedInProfile array
                     DispatchQueue.main.async {
                         switch result {
-                        case .success(let record):
+                        case let .success(record):
                             let profile = DDGProfile(record: record)
                             switch checkedInStatus {
                             case .checkedIn:
@@ -104,32 +106,35 @@ final class LocationDetailViewModel: ObservableObject {
                                 print("✅ Checked Out Successfully!")
                             }
                             isCheckedIn = checkedInStatus == .checkedIn
-                        case .failure(_):
+                            
+                        case .failure:
                             alertItem = AlertContext.unableToCheckInOrOut
                         }
                     }
                 }
-            case .failure(_):
+            case .failure:
                 DispatchQueue.main.async { alertItem = AlertContext.unableToCheckInOrOut }
             }
         }
     }
+
     
     func getCheckedInProfiles() {
         showLoadingView()
         CloudKitManager.shared.getCheckedInProfiles(for: location.id) { [self] result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let profiles):
+                case let .success(profiles):
                     checkedInProfiles = profiles
-                case .failure(_):
+                case .failure:
                     alertItem = AlertContext.unableToGetCheckedInProfiles
                 }
-                
+
                 hideLoadingView()
             }
         }
     }
+
     
     private func showLoadingView() { isLoading = true }
     private func hideLoadingView() { isLoading = false }

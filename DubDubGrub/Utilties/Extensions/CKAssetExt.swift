@@ -9,9 +9,9 @@ import CloudKit
 import UIKit
 
 extension CKAsset {
+    
     func convertToUIImage(in dimension: ImageDimension) -> UIImage {
         let placeholder = ImageDimension.getPlaceholder(for: dimension)
-        
         guard let fileUrl = self.fileURL else { return placeholder }
         
         do {
